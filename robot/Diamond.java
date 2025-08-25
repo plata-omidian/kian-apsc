@@ -24,92 +24,44 @@ public class Diamond implements Directions{
 
 
         // starting the letter R
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.move();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.turnLeft();
-       rob.move();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-       rob.move();
-       rob.turnLeft();
-       rob.move();
-       rob.putBeeper();
-
-
-        
- 
-
-
-
-
-
+        for(int i=0; i<5; i++)
+        {
+            //top left
+            rob.putBeeper();
+            rob.move();
+            rob.turnLeft();
+            rob.turnLeft();
+            rob.turnLeft();
+            rob.move();
+            rob.turnLeft();
+        }
+        rob.putBeeper();
+        rob.move();
+        rob.turnLeft();
+        rob.move();
+        for(int i=0; i<5; i++)
+        {
+            rob.putBeeper();
+            rob.move();
+            rob.turnLeft();
+            rob.turnLeft();
+            rob.turnLeft();
+            rob.move();
+            rob.turnLeft();
+        }
+        rob.turnLeft();
+        rob.move();
+        rob.move();
+        for(int i=0; i<5; i++)
+        {
+            rob.putBeeper();
+            rob.move();
+            rob.turnLeft();
+            rob.move();
+            rob.turnLeft();
+            rob.turnLeft();
+            rob.turnLeft();
+        }
         // done with the line, now on the curve
         // rob.turnLeft();
 
