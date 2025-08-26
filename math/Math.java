@@ -12,10 +12,7 @@ class Math {
 
 
 
-
-
-
-    //ANSWER:
+    //ANSWER: kian
 
 
 
