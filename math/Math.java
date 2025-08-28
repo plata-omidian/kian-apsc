@@ -6,13 +6,12 @@ class Math {
 
     //Use the // to create single line comments to either add info or to take out code for debugging
 
-    System.out.println("Hello world!");
 
     //We will be using System.out.println and System.out.print throughout the year. Try using both below to see what the difference is!
 
 
 
-    //ANSWER: kian
+    //ANSWER:
 
 
 
@@ -47,14 +46,22 @@ class Math {
     //Create codes that will print the following:
 
     //Odd integers from 1 to 100, inclusive of both
-
+    for(int i=1; i<=100; i+=2){
+      System.out.println(i);
+    }
+    System.out.println("100");
 
 
     //All multiples of 3 from 1 to 100
-
+    for(int i=1; i<=100; i+=3){
+      System.out.println(i);
+    }
 
 
 
     //Starting at 1000, print on the same line (with a - [hypthen] between each) all of the numbers that end in 0 going down to 0
+    for(int i=1000; i>=0; i-=10){
+      System.out.print(i+"-");
+    }
   }
 }
