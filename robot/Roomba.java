@@ -41,18 +41,63 @@ public class Roomba implements Directions {
 		// what is that and why are we getting it?
 		roomba.turnLeft();
 		roomba.move();
-		for(int i=1; i<8;i++){
+		for(int i=1;i<7;i++){
 			roomba.pickBeeper();
 		}
 		roomba.turnLeft();
-		System.err.println("running");
 		roomba.move();
 		roomba.move();
-
-
-
-
-
+		roomba.turnLeft();
+		roomba.move();
+		for(int i=1;i<8;i++){
+			roomba.pickBeeper();
+		}
+		roomba.move();
+		for(int i=1;i<7;i++){
+			roomba.pickBeeper();
+		}
+		roomba.move();
+		roomba.move();
+		roomba.turnLeft();
+		roomba.move();
+		for(int i=1;i<4;i++){
+			roomba.pickBeeper();
+		}
+		roomba.move();
+		for(int i=1;i<14;i++){
+			roomba.pickBeeper();
+		}
+		roomba.move();
+		roomba.turnLeft();
+		roomba.move();
+		roomba.move();
+		for(int i=1;i<8;i++){
+			roomba.pickBeeper();
+		}
+		roomba.move();
+		for(int i=1;i<=3;i++){
+			roomba
+			.turnLeft();
+		}
+		roomba.move();
+		for(int i=1;i<=5;i++){
+			roomba.pickBeeper();
+		}
+		for(int i=1;i<=3;i++){
+			roomba
+			.turnLeft();
+		}
+		roomba.move();
+		roomba.move();
+		for(int i=1;i<=6;i++){
+			roomba.pickBeeper();
+		}
+		for(int i=1;i<=3;i++){
+			roomba.move();
+		}
+		for(int i=1;i<=6;i++){
+			roomba.pickBeeper();
+		}
 		 // Need to move this somewhere else.
         // This method should return the total number of beepers cleaned up.
 		return totalBeepers;
