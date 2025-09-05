@@ -16,7 +16,7 @@ public class Roomba implements Directions {
 	}
 
 	// declared here so it is visible in all the methods!
-	private Robot roomba = new Robot(9,8,North,100);
+	private Robot roomba = new Robot(11,6,East,0);
 
 	// You will need to add many variables!!
 
@@ -28,8 +28,8 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
-		World.setDelay(1);
-		int totalBeepers = 100;
+		World.setDelay(10);
+		int totalBeepers = 0;
 
 
 		/** This section will have all the logic that takes the Robot to every location
@@ -39,65 +39,40 @@ public class Roomba implements Directions {
 
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
-		roomba.turnLeft();
-		roomba.move();
-		for(int i=1;i<7;i++){
-			roomba.pickBeeper();
-		}
-		roomba.turnLeft();
-		roomba.move();
-		roomba.move();
-		roomba.turnLeft();
-		roomba.move();
-		for(int i=1;i<8;i++){
-			roomba.pickBeeper();
-		}
-		roomba.move();
-		for(int i=1;i<7;i++){
-			roomba.pickBeeper();
-		}
-		roomba.move();
-		roomba.move();
-		roomba.turnLeft();
-		roomba.move();
-		for(int i=1;i<4;i++){
-			roomba.pickBeeper();
-		}
-		roomba.move();
-		for(int i=1;i<14;i++){
-			roomba.pickBeeper();
-		}
-		roomba.move();
-		roomba.turnLeft();
-		roomba.move();
-		roomba.move();
-		for(int i=1;i<8;i++){
-			roomba.pickBeeper();
-		}
-		roomba.move();
-		for(int i=1;i<=3;i++){
-			roomba
-			.turnLeft();
-		}
-		roomba.move();
-		for(int i=1;i<=5;i++){
-			roomba.pickBeeper();
-		}
-		for(int i=1;i<=3;i++){
-			roomba
-			.turnLeft();
-		}
-		roomba.move();
-		roomba.move();
-		for(int i=1;i<=6;i++){
-			roomba.pickBeeper();
-		}
+		// keyword while (condition)
+while (roomba.nextToABeeper())
+{
+	// body action
+	roomba.pickBeeper();
+}
+
 		for(int i=1;i<=3;i++){
 			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.turnLeft();
+			roomba.turnLeft();
+			roomba.turnLeft();
+			roomba.move();
+			roomba.turnLeft();
+			roomba.turnLeft();
+			roomba.turnLeft();
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.turnLeft();
+			roomba.move();
+			roomba.turnLeft();
 		}
-		for(int i=1;i<=6;i++){
-			roomba.pickBeeper();
-		}
+		
 		 // Need to move this somewhere else.
         // This method should return the total number of beepers cleaned up.
 		return totalBeepers;
