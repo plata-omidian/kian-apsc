@@ -28,8 +28,14 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
-		World.setDelay(5);
+		World.setDelay(2);
 		int totalBeepers = 0;
+		int totalSpaces=0; 
+		int largestPile=0;
+		int pileSize=0;
+		int largestPileLocationX = 0;
+		int largestPileLocationY = 0;
+
 
 		/** This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
@@ -41,9 +47,17 @@ public class Roomba implements Directions {
 		// keyword while (condition)
 		while (roomba.frontIsClear()) {
 			roomba.move();
+			totalSpaces++;
+			pileSize=0;
 			while (roomba.nextToABeeper()) {
 				roomba.pickBeeper();
 				totalBeepers++;
+				pileSize++;
+				if (pileSize>largestPile) {
+					largestPile=pileSize;
+					largestPileLocationY=roomba.street();
+					largestPileLocationX=roomba.avenue();
+				}
 			}
 			if (!roomba.frontIsClear()) {
 				if (roomba.facingEast()) {
@@ -51,6 +65,7 @@ public class Roomba implements Directions {
 					roomba.turnLeft();
 					roomba.turnLeft();
 					roomba.move();
+					totalSpaces++;
 					roomba.turnLeft();
 					roomba.turnLeft();
 					roomba.turnLeft();
@@ -58,12 +73,18 @@ public class Roomba implements Directions {
 				else{
 					roomba.turnLeft();
 					roomba.move();
+					totalSpaces++;
 					roomba.turnLeft();
 				}
 				
 			}
+			
+			System.out.println("the area of the room is "+totalSpaces);
+			System.out.println("the largest pile was "+largestPile+" and is located at "+largestPileLocationX+","+largestPileLocationY);
 		}
 		return totalBeepers;
+		
+		
 	}
 		
 		 // Need to move this somewhere else.
