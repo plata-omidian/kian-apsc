@@ -7,7 +7,7 @@ public class Roomba implements Directions {
 	// Main method to make this self-contained
 	public static void main(String[] args) {
 		// LEAVE THIS ALONE!!!!!!
-		String worldName = "robot/basicRoom.wld";
+		String worldName = "robot/finalTestWorld2024.wld";
 
 		Roomba cleaner = new Roomba();
 		int totalBeepers = cleaner.cleanRoom(worldName, 7, 6);
@@ -16,7 +16,7 @@ public class Roomba implements Directions {
 	}
 
 	// declared here so it is visible in all the methods!
-	private Robot roomba = new Robot(11,6,East,0);
+	private Robot roomba = new Robot(26,101,East,0);
 
 	// You will need to add many variables!!
 
@@ -28,7 +28,7 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
-		World.setDelay(2);
+		World.setDelay(0);
 		int totalBeepers = 0;
 		int totalSpaces=0; 
 		int largestPile=0;
@@ -55,12 +55,12 @@ public class Roomba implements Directions {
 				pileSize++;
 				if (pileSize>largestPile) {
 					largestPile=pileSize;
-					largestPileLocationY=roomba.street();
-					largestPileLocationX=roomba.avenue();
+					largestPileLocationX=roomba.street();
+					largestPileLocationY=roomba.avenue();
 				}
 			}
 			if (!roomba.frontIsClear()) {
-				if (roomba.facingEast()) {
+				if (roomba.facingWest()) {
 					roomba.turnLeft();
 					roomba.turnLeft();
 					roomba.turnLeft();
