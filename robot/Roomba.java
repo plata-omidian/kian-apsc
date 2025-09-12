@@ -35,6 +35,7 @@ public class Roomba implements Directions {
 		int pileSize=0;
 		int largestPileLocationX = 0;
 		int largestPileLocationY = 0;
+		int totalPiles=0;
 
 
 		/** This section will have all the logic that takes the Robot to every location
