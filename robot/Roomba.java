@@ -80,7 +80,7 @@ public class Roomba implements Directions {
 			}
 			
 			System.out.println("the area of the room is "+totalSpaces);
-			System.out.println("the largest pile was "+largestPile+" and is located at "+largestPileLocationX+","+largestPileLocationY);
+			System.out.println("the largest pile was "+largestPile+" beepers and is located at ("+largestPileLocationX+","+largestPileLocationY+")");
 		}
 		return totalBeepers;
 		
