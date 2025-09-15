@@ -10,7 +10,7 @@ public class Roomba implements Directions {
 		String worldName = "robot/finalTestWorld2024.wld";
 
 		Roomba cleaner = new Roomba();
-		int totalBeepers = cleaner.cleanRoom(worldName, 7, 6);
+		int totalBeepers = cleaner.cleanRoom(worldName, 25, 101);
 		System.out.println("Roomba cleaned up a total of " + totalBeepers + " beepers.");
 
 	}
@@ -29,7 +29,7 @@ public class Roomba implements Directions {
 		World.readWorld(worldName);
 		World.setVisible(true);
 		World.setDelay(0);
-		int totalBeepers = 0;
+		int totalBeepers = 99;
 		int totalSpaces=0; 
 		int largestPile=0;
 		int pileSize=0;
@@ -47,9 +47,6 @@ public class Roomba implements Directions {
 		// what is that and why are we getting it?
 		// keyword while (condition)
 		while (roomba.frontIsClear()) {
-			roomba.move();
-			totalSpaces++;
-			pileSize=0;
 			while (roomba.nextToABeeper()) {
 				roomba.pickBeeper();
 				totalBeepers++;
@@ -59,6 +56,12 @@ public class Roomba implements Directions {
 					largestPileLocationX=roomba.street();
 					largestPileLocationY=roomba.avenue();
 				}
+			}
+			roomba.move();
+			totalSpaces++;
+			pileSize=0;
+			if (pileSize>0){
+				totalPiles++;
 			}
 			if (!roomba.frontIsClear()) {
 				if (roomba.facingWest()) {
@@ -79,9 +82,9 @@ public class Roomba implements Directions {
 				}
 				
 			}
-			
 			System.out.println("the area of the room is "+totalSpaces);
 			System.out.println("the largest pile was "+largestPile+" beepers and is located at ("+largestPileLocationX+","+largestPileLocationY+")");
+			System.out.println("there were "+totalPiles+" piles");
 		}
 		return totalBeepers;
 		
