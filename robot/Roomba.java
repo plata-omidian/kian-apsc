@@ -47,6 +47,7 @@ public class Roomba implements Directions {
 		// what is that and why are we getting it?
 		// keyword while (condition)
 		while (roomba.frontIsClear()) {
+			pileSize=0;
 			while (roomba.nextToABeeper()) {
 				roomba.pickBeeper();
 				totalBeepers++;
@@ -59,7 +60,7 @@ public class Roomba implements Directions {
 			}
 			roomba.move();
 			totalSpaces++;
-			pileSize=0;
+			
 			if (pileSize>0){
 				totalPiles++;
 			}
@@ -85,6 +86,8 @@ public class Roomba implements Directions {
 			System.out.println("the area of the room is "+totalSpaces);
 			System.out.println("the largest pile was "+largestPile+" beepers and is located at ("+largestPileLocationX+","+largestPileLocationY+")");
 			System.out.println("there were "+totalPiles+" piles");
+			System.out.println("the average pile size is "+ (totalBeepers/totalPiles)+" beepers");
+			System.out.println("the room was "+ ((double)totalPiles/totalSpaces)*100+"% dirty");
 		}
 		return totalBeepers;
 		
