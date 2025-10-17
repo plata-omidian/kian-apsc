@@ -34,11 +34,16 @@ public class PigLatinTranslator {
         // TODO: Replace this code to correctly translate a single word.
         // Start here first!
         // This is the first place to work.
-        if (input.startsWith("a"||"i"||"e"||"o"||"u")){
-            return input.substring(2)+input.substring(input.index(1))+"ay";
+        if(input.startsWith("a")||input.startsWith("e")||input.startsWith("i")||input.startsWith("o")||input.startsWith("u")){
+        return(input+"ay");
+        }
+        if (!(input.charAt(1) == 'a'||input.charAt(1) == 'e'||input.charAt(1) == 'i'||input.charAt(1) == 'e'||input.charAt(1) == 'o'||input.charAt(1) == 'u')){
+                return(input.substring(2)+input.substring(0,2)+"ay");
+            } 
+        else{
+            return(input.substring(1)+input.substring(0,1)+"ay");
         }
         
-        result = input; // delete this line
 
         //return result;
     }
