@@ -34,6 +34,7 @@ public class PigLatinTranslator {
         // TODO: Replace this code to correctly translate a single word.
         // Start here first!
         // This is the first place to work.
+        if(input.length()>2)
         if(input.startsWith("a")||input.startsWith("e")||input.startsWith("i")||input.startsWith("o")||input.startsWith("u")){
         return(input+"ay");
         }
@@ -43,7 +44,7 @@ public class PigLatinTranslator {
         else{
             return(input.substring(1)+input.substring(0,1)+"ay");
         }
-        
+        //if(input.toUpperCase());
 
         //return result;
     }
