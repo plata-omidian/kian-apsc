@@ -34,17 +34,15 @@ public class PigLatinTranslator {
         // TODO: Replace this code to correctly translate a single word.
         // Start here first!
         // This is the first place to work.
-        if(input.length()>2)
-        if(input.startsWith("a")||input.startsWith("e")||input.startsWith("i")||input.startsWith("o")||input.startsWith("u")){
-        return(input+"ay");
-        }
-        if (!(input.charAt(1) == 'a'||input.charAt(1) == 'e'||input.charAt(1) == 'i'||input.charAt(1) == 'e'||input.charAt(1) == 'o'||input.charAt(1) == 'u')){
-                return(input.substring(2)+input.substring(0,2)+"ay");
-            } 
-        else{
-            return(input.substring(1)+input.substring(0,1)+"ay");
-        }
-        //if(input.toUpperCase());
+       for (int i=0; i<input.length(); i++){
+      String currentLetter = input.substring(i,i+1);
+      if (isVowel(currentLetter)){
+        i=firstVowel;
+        System.out.println(firstVowel);
+        break;
+      }
+    }
+    return(input.substring(firstVowel)+input.substring(0, firstVowel)+"ay");
 
         //return result;
     }
@@ -52,5 +50,18 @@ public class PigLatinTranslator {
     // Add additonal private methods here.
     // For example, I had one like this:
     // private static String capitalizeFirstLetter(String input)
+    static int firstVowel;
+    public static boolean isVowel(String letter)
+  {
+    if (letter.length() == 1)
+    {
+      String vowels = "aeiou";
+      if (vowels.indexOf(letter) != -1)
+      {
+        return true;
+      }
+    }
+    return false;
+  }
 
 }
