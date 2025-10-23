@@ -34,7 +34,8 @@ public class PigLatinTranslator {
         // TODO: Replace this code to correctly translate a single word.
         // Start here first!
         // This is the first place to work.
-       for (int i=0; i<input.length(); i++){
+       if(input.length()>0){
+        for (int i=0; i<input.length(); i++){
       String currentLetter = input.substring(i,i+1);
       if (isVowel(currentLetter)){
         firstVowel=i;
@@ -42,6 +43,11 @@ public class PigLatinTranslator {
       }
     }
     return(input.substring(firstVowel)+input.substring(0, firstVowel)+"ay");
+    }
+    else{
+      return(input);
+    }
+        
 
         //return result;
     }
