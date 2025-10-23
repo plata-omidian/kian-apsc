@@ -37,8 +37,7 @@ public class PigLatinTranslator {
        for (int i=0; i<input.length(); i++){
       String currentLetter = input.substring(i,i+1);
       if (isVowel(currentLetter)){
-        i=firstVowel;
-        System.out.println(firstVowel);
+        firstVowel=i;
         break;
       }
     }
@@ -55,7 +54,7 @@ public class PigLatinTranslator {
   {
     if (letter.length() == 1)
     {
-      String vowels = "aeiou";
+      String vowels = "aeiouy";
       if (vowels.indexOf(letter) != -1)
       {
         return true;
