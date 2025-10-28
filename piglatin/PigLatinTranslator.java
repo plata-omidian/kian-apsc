@@ -37,7 +37,19 @@ public class PigLatinTranslator {
         // Start here first!
         // This is the first place to work.
         if(input.length()>0){
-           for (int i=0; i<input.length(); i++){
+         //find the punc 
+          if(tail(result)==true){
+            for (int j=0; j<input.length(); j++){
+      String currentLetter = input.substring(j,j+1);
+      if (tail(currentLetter)){
+        punc=j;
+        break;
+      }
+    }
+          }
+          System.out.println(punc);
+          //find the vowel
+          for (int i=0; i<input.length(); i++){
       String currentLetter = input.substring(i,i+1);
       if (isVowel(currentLetter)){
         firstVowel=i;
