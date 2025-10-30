@@ -38,16 +38,9 @@ public class PigLatinTranslator {
         // This is the first place to work.
         if(input.length()>0){
          //find the punc 
-          if(tail(result)==true){
-            for (int j=0; j<input.length(); j++){
-      String currentLetter = input.substring(j,j+1);
-      if (tail(currentLetter)){
-        punc=j;
-        break;
-      }
-    }
+          if(input.endsWith(".")||input.endsWith(",")){
+            tail=input.substring(input.length()-1);
           }
-          System.out.println(punc);
           //find the vowel
           for (int i=0; i<input.length(); i++){
       String currentLetter = input.substring(i,i+1);
@@ -74,23 +67,12 @@ public class PigLatinTranslator {
     // For example, I had one like this:
     // private static String capitalizeFirstLetter(String input)
     static int firstVowel;
-    static int punc;
+    static String tail;
     public static boolean isVowel(String letter){
     if (letter.length() == 1)
     {
       String vowels = "aeiouy";
       if (vowels.indexOf(letter) != -1)
-      {
-        return true;
-      }
-    }
-    return false;
-  }
-public static boolean tail(String letter){
-    if (letter.length() == 1)
-    {
-      String tails = ".,!?";
-      if (tails.indexOf(letter) != -1)
       {
         return true;
       }
