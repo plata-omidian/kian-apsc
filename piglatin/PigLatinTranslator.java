@@ -36,10 +36,22 @@ public class PigLatinTranslator {
         // TODO: Replace this code to correctly translate a single word.
         // Start here first!
         // This is the first place to work.
+        if(input==null||input.trim().isEmpty()){
+          return("");
+        }
+        Scanner scnr = new Scanner(input);
+        //while(scnr.hasNext()){
+
+        //}
         if(input.length()>0){
          //find the punc 
-          if(input.endsWith(".")||input.endsWith(",")){
+          if(input.endsWith(".")){
             tail=input.substring(input.length()-1);
+            String temp =(input.substring(firstVowel,input.length()-1)+input.substring(0, firstVowel)+"ay"+tail);
+            if(Character.isUpperCase(input.charAt(0))){
+             return temp.substring(0,1).toUpperCase()+temp.substring(1).toLowerCase();
+            }
+            return temp;
           }
           //find the vowel
           for (int i=0; i<input.length(); i++){
@@ -57,6 +69,7 @@ public class PigLatinTranslator {
     }
     else{
       return(input);
+  
     }
         
 
