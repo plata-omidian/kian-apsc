@@ -40,35 +40,37 @@ public class PigLatinTranslator {
           return("");
         }
         Scanner scnr = new Scanner(input);
-        //while(scnr.hasNext()){
-
-        //}
-        if(input.length()>0){
+       // String word="";
+       // String fullString="";
+      //  while(scnr.hasNext()){
+      //   word=scnr.next();
+        String word=input;
+        if(word.length()>0){
          //find the punc 
-          if(input.endsWith(".")){
-            tail=input.substring(input.length()-1);
-            String temp =(input.substring(firstVowel,input.length()-1)+input.substring(0, firstVowel)+"ay"+tail);
-            if(Character.isUpperCase(input.charAt(0))){
+          if(word.endsWith(".")){
+            tail=word.substring(word.length()-1);
+            String temp =(word.substring(firstVowel,word.length()-1)+word.substring(0, firstVowel)+"ay"+tail);
+            if(Character.isUpperCase(word.charAt(0))){
              return temp.substring(0,1).toUpperCase()+temp.substring(1).toLowerCase();
             }
             return temp;
           }
-          //find the vowel
-          for (int i=0; i<input.length(); i++){
-      String currentLetter = input.substring(i,i+1);
+         // find the vowel
+          for (int i=0; i<word.length(); i++){
+      String currentLetter = word.substring(i,i+1);
       if (isVowel(currentLetter)){
         firstVowel=i;
         break;
       }
     }
-          if(Character.isUpperCase(input.charAt(0))){
-            return(input.substring(firstVowel,firstVowel+1).toUpperCase()+input.substring(firstVowel+1)+input.substring(0, firstVowel).toLowerCase()+"ay");
+          if(Character.isUpperCase(word.charAt(0))){
+            return(word.substring(firstVowel,firstVowel+1).toUpperCase()+word.substring(firstVowel+1)+word.substring(0, firstVowel).toLowerCase()+"ay");
           }
        
-    return(input.substring(firstVowel)+input.substring(0, firstVowel)+"ay");
+    return(word.substring(firstVowel)+word.substring(0, firstVowel)+"ay");
     }
     else{
-      return(input);
+      return(word);
   
     }
         
