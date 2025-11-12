@@ -39,20 +39,36 @@ public class PigLatinTranslator {
         if(input==null||input.trim().isEmpty()){
           return("");
         }
-        Scanner scnr = new Scanner(input);
+        boolean lastWord=false;
+        //Scanner scnr = new Scanner(input);
        // String word="";
        // String fullString="";
       //  while(scnr.hasNext()){
       //   word=scnr.next();
-        String word=input;
+      String word="";
+      if (input.indexOf(" ")!=-1){
+        word=input.substring(0,input.indexOf(" "));
+        input=input.substring(input.indexOf(" ")+1);
+      }  
+      else{
+        lastWord=true;
+        word=input;
+      }
+      //String word=input;
         if(word.length()>0){
          //find the punc 
           if(word.endsWith(".")){
             tail=word.substring(word.length()-1);
             String temp =(word.substring(firstVowel,word.length()-1)+word.substring(0, firstVowel)+"ay"+tail);
             if(Character.isUpperCase(word.charAt(0))){
-             return temp.substring(0,1).toUpperCase()+temp.substring(1).toLowerCase();
+             if(!lastWord)
+              return temp.substring(0,1).toUpperCase()+temp.substring(1).toLowerCase()+" "+translateWord(input);
+             else
+              return temp.substring(0,1).toUpperCase()+temp.substring(1).toLowerCase();
             }
+           if(!lastWord)
+            return temp+" "+translateWord(input);
+            else
             return temp;
           }
          // find the vowel
@@ -64,13 +80,23 @@ public class PigLatinTranslator {
       }
     }
           if(Character.isUpperCase(word.charAt(0))){
+            if(!lastWord)
+             return(word.substring(firstVowel,firstVowel+1).toUpperCase()+word.substring(firstVowel+1)+word.substring(0, firstVowel).toLowerCase()+"ay")+" "+translateWord(input);
+            else
             return(word.substring(firstVowel,firstVowel+1).toUpperCase()+word.substring(firstVowel+1)+word.substring(0, firstVowel).toLowerCase()+"ay");
           }
        
-    return(word.substring(firstVowel)+word.substring(0, firstVowel)+"ay");
+        if(!lastWord)
+          return(word.substring(firstVowel)+word.substring(0, firstVowel)+"ay")+" "+translateWord(input);
+        else
+         return(word.substring(firstVowel)+word.substring(0, firstVowel)+"ay");
     }
     else{
-      return(word);
+      if(!lastWord)
+        return(word)+" "+translateWord(input);
+      else
+         return(word);
+
   
     }
         
