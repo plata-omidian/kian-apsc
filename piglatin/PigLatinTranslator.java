@@ -1,10 +1,17 @@
 package piglatin;
 
 import java.util.Scanner;
+import java.io.File;
 
 public class PigLatinTranslator {
     public static Book translate(Book input) {
+      File file=new File ("/workspaces/kian-apsc/piglatin/raj.txt");
         Book translatedBook = new Book();
+        translatedBook.setTitle("THE TRAGEDY OF ROMEO AND JULIET");
+        Scanner scnr=new Scanner(file);
+        while(scnr.hasNext()){
+          translatedBook.appendLine(translateWord(scnr.nextLine()));
+        }
 
         // TODO: Add code here to populate translatedBook with a translation of the
         // input book.
