@@ -63,6 +63,11 @@ public class Book {
             URL bookUrl = URI.create(url).toURL();
             // TODO: use Scanner to populate the book
             // Scanner can open a file on a URL like this:
+            Scanner sc = new Scanner(bookUrl.openStream());
+            while (sc.hasNextLine()) {
+                text.add(sc.nextLine());
+            }
+            sc.close();
             // Scanner(bookUrl.openStream())
             // use: text.add(line) to add a line to the book.
         } catch (IOException ex) {

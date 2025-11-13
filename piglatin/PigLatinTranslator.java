@@ -5,16 +5,20 @@ import java.io.File;
 
 public class PigLatinTranslator {
     public static Book translate(Book input) {
-      File file=new File ("/workspaces/kian-apsc/piglatin/raj.txt");
+      //File file=new File ("/workspaces/kian-apsc/piglatin/raj.txt");
         Book translatedBook = new Book();
-        translatedBook.setTitle("THE TRAGEDY OF ROMEO AND JULIET");
-        Scanner scnr=new Scanner(file);
-        while(scnr.hasNext()){
-          translatedBook.appendLine(translateWord(scnr.nextLine()));
+        //translatedBook.setTitle("THE TRAGEDY OF ROMEO AND JULIET");
+        for (int i=0;i<input.getLineCount();i++)
+        {
+          translatedBook.appendLine(translate(input.getLine(i)));
         }
-
+        //while(scnr.hasNext()){
+          //translatedBook.appendLine(translateWord(scnr.nextLine()));
+        //}
+        
         // TODO: Add code here to populate translatedBook with a translation of the
         // input book.
+
         // Curent do-nothing code will return an empty book.
         // Your code will need to call translate(String input) many times.
 
@@ -28,9 +32,17 @@ public class PigLatinTranslator {
 
         // TODO: translate a string input, store in result.
         // The input to this function could be any English string.
+        Scanner sc=new Scanner(input);
+        while (sc.hasNext()) {
+          result+=translateWord(sc.next());
+          if (sc.hasNext())
+          {
+            result+=" ";
+          }
+        }
+        sc.close();
         // It may be made up of many words.
         // This method must call translateWord once for each word in the string.
-        result = translateWord(input);
 
         return result;
     }
@@ -64,6 +76,12 @@ public class PigLatinTranslator {
       //String word=input;
         if(word.length()>0){
          //find the punc 
+         if(firstVowel==-1){
+          if(!lastWord)
+          return(word+"ay"+" "+translateWord(input));
+          else
+          return(word+"ay");
+         }
           if(word.endsWith(".")){
             tail=word.substring(word.length()-1);
             String temp =(word.substring(firstVowel,word.length()-1)+word.substring(0, firstVowel)+"ay"+tail);
