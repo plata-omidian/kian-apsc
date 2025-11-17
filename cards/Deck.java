@@ -1,13 +1,15 @@
 package cards;
 
+import javax.smartcardio.Card;
+
+import piglatin.string;
+
 public class Deck {
 //fields
     //private static String[] deck=
 //constructor
     public Deck(){
-        for(int i=0;i<=52;i++){
-            Card cd = new Card();
-        }
+       public static string[] deck={};
     }
 //methods
     public String print(){
