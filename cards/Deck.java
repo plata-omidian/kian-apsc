@@ -6,7 +6,7 @@ import piglatin.string;
 
 public class Deck {
 //fields
-    //private static String[] deck=
+    private static String[] deck=
 //constructor
     public Deck(){
        public static string[] deck={};
