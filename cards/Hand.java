@@ -3,7 +3,7 @@ package cards;
 import javax.smartcardio.Card;
 
 public class Hand {
-    private int max;
+    private int max=13;
     private static String[] hand;
 //constructer
     public Hand(int max){
@@ -23,5 +23,8 @@ public class Hand {
     }
     public String get(){
         return(hand[]);
+    }
+    public String toString(){
+        return(hand[hand.length]);
     }
 }
