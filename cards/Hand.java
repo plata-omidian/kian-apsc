@@ -54,7 +54,7 @@ public class Hand {
             hand[i] = hand[i + 1];
         }
 
-        hand[topNum - 1] = null;   // optional, just clears the last slot
+        hand[topNum - 1] = null;
         topNum--;
 
         return removed;
