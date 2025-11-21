@@ -16,7 +16,8 @@ public class Card {
     public int getValue(){
         return(value);
     }
-    public String tooString(){
+    @Override
+    public String toString(){
         return(suits[suit]+values[value]);
     }
 }
