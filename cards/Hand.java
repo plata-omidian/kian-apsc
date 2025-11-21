@@ -1,62 +1,44 @@
 package cards;
-
-import javax.smartcardio.Card;
-
-import piglatin.string;
-
-public class Hand {
-    private int max=13;
-    private static Card[] hand;
-    int topNum=0;
-//constructer
-    public Hand(int max){
-        this.max=max;
-        topNum=0;
+import java.util.Arrays; 
+public class Hand { 
+    private Card[] cards; 
+    private int currentLength; 
+    public Hand(int maxCards) { 
+        cards = new Card[maxCards];
+        currentLength = 0; 
+     } 
+    public void add(Card card) { 
+        if (currentLength < cards.length) { 
+            cards[currentLength] = card; 
+            currentLength++; 
+        if (currentLength > cards.length) {
+            System.out.println("No can do bud, your hand is full :(");
+        } 
     }
-//methods
-    public void add(Card c){
-        if(hand.length<max){
-            hand[topNum]=c;
-            topNum++;
-        }
-        else{
-            System.out.println("no can do bud, your hand is full");
-        }
+  }
+    public int length() { 
+        return currentLength; 
+    } 
+    public Card get(int index) { 
+        if (index >= 0 && index < currentLength) {
+            return cards[index]; 
     }
-    public int length(){
-        return topNum;
+ return null; 
+    } 
+    public Card remove(int index) { 
+        if (index >= 0 && index < currentLength) { 
+            Card removedCard = cards[index]; 
+            System.arraycopy(cards, index+1, cards, index, currentLength-index-1); cards[currentLength-1] = null; 
+            currentLength--; 
+            return removedCard; 
     }
-     public Card get(int index) {
-        if (index < 0 || index >= topNum) {
-            return null;
-        }
-        return hand[index];
+    return null; 
     }
-      public String toString() {
-        String result = "";
-        for (int i = 0; i < topNum; i++) {
-            if (i > 0) {
-                result += " ";
-            }
-            result += hand[i].toString();
-        }
-        return result;
-    }
-      public Card remove(int index) {
-        if (index < 0 || index >= topNum) {
-            return null;
-        }
-
-        Card removed = hand[index];
-
-        // shift everything after index one spot to the left
-        for (int i = index; i < topNum - 1; i++) {
-            hand[i] = hand[i + 1];
-        }
-
-        hand[topNum - 1] = null;
-        topNum--;
-
-        return removed;
+    public String toString() {
+        String[] cardStrings = new String[currentLength]; 
+        for (int i = 0; i < currentLength; i++) { 
+            cardStrings[i] = cards[i].toString(); 
+    } 
+    return String.join(" ", cardStrings);
     }
 }
