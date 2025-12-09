@@ -9,7 +9,7 @@ public class GameOfLife implements Board {
 
     public GameOfLife(int x, int y)
     {
-        board= new int[x][y];
+        board = new int[x][y];
     }
 
     // Set values on the board
@@ -35,8 +35,9 @@ public class GameOfLife implements Board {
 
 
     public int countNeighbors(int x, int y) {
-        int count = 0;
+        int count = get(x-1,y-1);
         // count the number of neighbors the cell has
+        if(count)
         // use the get(x,y) method to read any board state you need.
         return count;
     }
