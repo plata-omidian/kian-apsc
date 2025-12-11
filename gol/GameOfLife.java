@@ -24,17 +24,43 @@ public class GameOfLife implements Board {
     // Run the simulation for a number of turns
     public void run(int turns) {
         // call step the number of times requested
+        for(int i=0;i<turns;i++){
+            step();
+        }
     }
 
     // Step the simulation forward one turn.
+    //Ms. Cyr if you are reading this im letting you know that this was so hard to figure out
     public void step()
     {
+    int[][] newBoard = new int[board.length][board[0].length];
+    for (int x = 0; x < board.length; x++) {
+        for (int y = 0; y < board[0].length; y++) {
+            int neighbors = countNeighbors(x, y);
+            if (board[x][y] == 1) {
+                if (neighbors == 2 || neighbors == 3) {
+                    newBoard[x][y] = 1;
+                } else {
+                    newBoard[x][y] = 0;
+                }
+            } else {
+                if (neighbors == 3) {
+                    newBoard[x][y] = 1;
+                } else {
+                    newBoard[x][y] = 0;
+                }
+            }
+        }
+    }
+        board = newBoard;
         print();
         // Update the game board, store a 1 if the cell is alive and a 0 otherwise.
     }
 
 
     public int countNeighbors(int x, int y) {
+       // count the number of neighbors the cell has
+       // and this needed to be reworded
         int count = 0;
         for(int i=-1;i<=1;i++){
             for(int j=-1;j<=1;j++){
@@ -44,7 +70,6 @@ public class GameOfLife implements Board {
                 count+=get(x+i,y+j);
             }
         }
-        // count the number of neighbors the cell has
         // use the get(x,y) method to read any board state you need.
         return count;
     }
