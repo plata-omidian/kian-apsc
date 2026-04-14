@@ -12,6 +12,7 @@ public class TowerSolver {
     {
         this.model = model;
         // Call the missing solve method (not this one)
+        solve(model.getHeight(), 0, 2, 1);  
         
     }
 
